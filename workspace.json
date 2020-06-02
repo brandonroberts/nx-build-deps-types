@@ -1,8 +1,89 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "store": {
+      "projectType": "library",
+      "root": "modules/store",
+      "sourceRoot": "modules/store/src",
+      "prefix": "ngrxbuild",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "modules/store/tsconfig.lib.json",
+            "project": "modules/store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "modules/store/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "modules/store/tsconfig.lib.json",
+              "modules/store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!modules/store/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/store/jest.config.js",
+            "tsConfig": "modules/store/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "modules/store/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "router-store": {
+      "projectType": "library",
+      "root": "modules/router-store",
+      "sourceRoot": "modules/router-store/src",
+      "prefix": "ngrxbuild",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "modules/router-store/tsconfig.lib.json",
+            "project": "modules/router-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "modules/router-store/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "modules/router-store/tsconfig.lib.json",
+              "modules/router-store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!modules/router-store/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/router-store/jest.config.js",
+            "tsConfig": "modules/router-store/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "modules/router-store/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -61,6 +142,16 @@
       "library": {
         "linter": "eslint"
       }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest",
+      "style": "css",
+      "publishable": true
     }
-  }
+  },
+  "defaultProject": "store"
 }

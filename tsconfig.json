@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ngrxbuild/store": ["modules/store/src/index.ts"],
+      "@ngrxbuild/router-store": ["modules/router-store/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

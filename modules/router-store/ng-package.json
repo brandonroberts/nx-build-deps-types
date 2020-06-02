@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/modules/router-store",
+  "lib": {
+    "umdModuleIds": {
+      "@ngrx/store": "ngrx.store"
+    },
+    "entryFile": "src/index.ts"
+  }
+}

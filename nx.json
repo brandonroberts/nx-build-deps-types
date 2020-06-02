@@ -10,6 +10,10 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "modules"
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -18,5 +22,12 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "store": {
+      "tags": []
+    },
+    "router-store": {
+      "tags": []
+    }
+  }
 }
